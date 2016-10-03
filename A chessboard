@@ -1,0 +1,53 @@
+/*Paris Henighan
+19 SEP 2016
+Version 1
+Chessboard Program
+This program prints a chessboard*/
+
+#include <iostream> //allows access of i/o library
+#include <iomanip> //allows access of manip library
+using namespace std;
+//declare variables for size and shape of board
+int length, wide, boardSize, Length, Wide, BoardSize, BlackSetw, WhiteSetw;
+
+int main ()
+{
+    //determine size and shape of board
+Length = 5;
+BoardSize = 4;
+Wide = 4;
+boardSize = 1;
+BlackSetw = 10;
+WhiteSetw = 10;
+while (boardSize <= BoardSize) //design total board size
+{
+    length = 1;
+    while (length <= Length) //design the length of the black/white shape
+    {
+    wide = 1;
+while (wide <= Wide) //design and print out black/white lines
+    {
+        cout << setfill('#') << setw(BlackSetw) << '#';
+        cout << setfill(' ') << setw(WhiteSetw) << ' ';
+        wide = wide + 1; //counter
+    }
+    cout << endl;
+    length = length + 1; //length counter for black/white box
+    }
+        length = 1;
+    while (length <= Length) //design white/black shape
+    {
+   wide = 1;
+while (wide <= Wide) //design and print out white/black lines
+   {
+       cout << setfill(' ') << setw(WhiteSetw) << ' ';
+       cout << setfill('#') << setw(BlackSetw) << '#';
+       wide = wide + 1;
+   }
+   cout << endl;
+   length = length + 1; //length counter for white/black shape
+    }
+    boardSize = boardSize + 1; //boardsize counter
+}
+  return 0; //end program
+}
