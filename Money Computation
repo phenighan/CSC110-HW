@@ -1,0 +1,34 @@
+/*Money Computation
+*Paris Henighan
+*14SEP2016
+*Version 2
+Program to computes total amount of money represented in variable float money.
+*/
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int dollars, quarters, dimes, nickels, pennies, quit;
+float money;
+int main()
+{
+    do {
+    cout << "Enter a dollar amount (ex, 25.34): $";
+    cin >> money;
+    float(pennies) = money / .01;
+    cout << "That's a total of " << pennies << " pennies!!" << endl;
+    float(dollars) = money / 1;
+    cout << "That's a totals of " << int(dollars) << " dollars." << endl;
+    float(quarters) = money / .25;
+    cout << "That's a total of " << int(quarters) << " quarters." << endl;
+    float(dimes) = money / .1;
+    cout << "That's a total of " << int(dimes) << " dimes." << endl;
+    float(nickels) = money / .05;
+    cout << "That's a total of " << int(nickels) << " nickels." << endl;
+    cout << "0 to quit, 1 to run again.";
+    cin >> quit;
+    }
+    while (quit == 1);
+    return 0;
+}
