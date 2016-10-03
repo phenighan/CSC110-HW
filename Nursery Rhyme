@@ -1,0 +1,39 @@
+/*Nursery Rhyme
+Paris Henighan
+12JUN2016
+Version 1
+Rhyme prints out Hickory Dickory Dock */
+
+#include <iostream> //allows use of cout and endl
+#include <string> //allows use of strings
+using namespace std;
+
+const char SEMI_COLON = ';'; //string for semicolon
+const string PHRASE = "Hickory, dickory, dock"; //string for first and last phrase
+const string NOUN = "The mouse "; //the string for mouse
+const string VERB1 = "ran up "; //string for first verb
+const string VERB2 = "struck "; //string for second verb
+const string VERB3 = "ran down"; //string for third verb
+
+
+int main()
+{
+    string firstLine; //string for first line
+    string secondLine; //string for second line
+    string thirdLine; //string for third line
+    string fourthLine; //string for fourth line
+    string fifthLine; //string for fifth line
+
+    firstLine = PHRASE; //line one of nursery rhryme
+    secondLine = NOUN + VERB1 + "the clock."; //line 2 of nursery rhyme
+    thirdLine = "The clock " + VERB2 + "one"; //line 3 of nursery rhyme
+    fourthLine = NOUN + VERB3; //line 3 of nursery rhyme
+    fifthLine = PHRASE; //line 5 of nursery rhyme
+
+    cout << firstLine << SEMI_COLON << endl; //output line 1
+    cout << secondLine << endl; //output line 2
+    cout << thirdLine << SEMI_COLON << endl; //output line 3
+    cout << fourthLine << SEMI_COLON << endl; //output line 4
+    cout << fifthLine << '.' << endl; //output line 5
+    return 0; //end program
+}
