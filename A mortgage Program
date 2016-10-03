@@ -1,0 +1,59 @@
+/*My Mortgage Calculator
+*Paris Henighan
+*20JUN2016
+*Version 2
+Program to calculate mortgage with a function
+*/
+
+#include <iostream> //allows use of cout and endl
+#include <cmath> //allows use of math
+#include <iomanip> //access manipulators
+using namespace std;
+
+float interestRate; //yearly interest rate
+float loanAmount; //total loan amount
+int years; //number of years on loan
+float payment; //monthly payment
+int NumberOfPayments; //number of payments total
+float MonthlyInterest; //monthly interest rate
+
+float CalcMonthlyInterest (float); //declare function for monthly interest
+int CalcNumberOfPayments (int); //declare function for number of payments
+
+int main ()
+{
+   //have user input yearly interest rate, loan amount, and number of years on loan.
+   cout << "Enter Yearly Interest Rate." << endl;
+    cin >> interestRate;
+    cout <<"Enter Loan Amount."<< endl;
+    cin >> loanAmount;
+    cout << "Enter Number of years on loan." <<endl;
+    cin >> years;
+
+    //calculate values
+    CalcMonthlyInterest (interestRate);
+    CalcNumberOfPayments (years);
+
+    payment = (loanAmount * pow(MonthlyInterest + 1,
+    NumberOfPayments) * MonthlyInterest /
+    (pow(MonthlyInterest + 1, NumberOfPayments)-1));
+    //output results
+    cout << fixed << setprecision(2)
+          << "For a loan amount of $" << loanAmount << "," << endl;
+    cout << "with an interest rate of " << interestRate << "%," << endl;
+    cout << "and a " << years << " year mortgage, " << endl;
+   cout << "your monthly payments are $" << payment << "." << endl;
+         return 0;
+}
+float CalcMonthlyInterest (float i) //function for monthly interest
+{
+//calculate monthly interest
+    MonthlyInterest = i/12;
+    return MonthlyInterest;
+}
+int CalcNumberOfPayments (int p) //function for number of payments
+{
+//calculate number of payments
+    NumberOfPayments = p * 12;
+    return NumberOfPayments;
+}
