@@ -1,0 +1,26 @@
+/*
+Paris Henighan
+13JUN2016
+Version 2
+Math
+Squares, cubes, square root, and cube root a user input number */
+
+#include <iostream> //allows use of cin, cout, and endl
+#include <cmath> //allows use of math functions
+
+using namespace std;
+
+int main()
+{
+
+    int number; //declaring number entered an integer
+    cout << "enter a number" << endl; //ask user to enter a number
+    cin >> number; //user enters a number
+    cout << "the square of " << number << " is " << //display the square root of the number
+        sqrt(number) << "." << endl;
+    cout << number << " cubed is "<<
+    pow(number,3) << "." <<endl; //display number cubed
+    cout << number << " squared is " << pow(number,2) << "." <<endl; //output square of number
+    cout << "the cube of " << number << " is " << cbrt(number) << "." <<endl; //out but of cube root of number
+    return 0;
+}
