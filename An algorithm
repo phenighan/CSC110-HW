@@ -1,0 +1,74 @@
+/*Paris Henighan
+19 SEP 2016
+Version 1
+Algorithm
+This program shows how an algorithm can work for part of a vacuum*/
+/*
+My algorithm will be a battery check.
+1. Either human will turn me on or it is my scheduled time to turn on. SEQUENCE
+2. Is my battery at least 80%? If not, STOP recharge, once battery is charged to 80% continue. SELECTION
+3. Check to see if my bag is full. Bag must not be full to continue. SEQUENCE
+4. Turn on suction and brushes. SEQUENCE
+5. Move throughout the area to vacuum. SEQUENCE
+6. Have battery alert me at 15%.SUBPROGRAM
+7. Turn off suction and brushes.SUBPROGRAM
+8. Remember what I have already done. SUBPROGRAM
+9. Go to recharging station. SEQUENCE
+10. Touch recharging station to recharge. SEQUENCE
+11. Have battery alert me at 80%. SUBPROGRM
+12. Repeat steps 2-12 until area is vacuumed. LOOP
+13. Once area is vacuumed, go to recharge station. SELECTION
+14. Have battery alert me at 100%. SELECTION
+15. Power off. SEQUENCE
+Test Case
+Battery is at 100% anytime = I am good to go! Begin/continue vacuuming.
+Battery is at 80% anytime = I am good to go! Begin/continue vacuuming.
+Battery is at 78% at turn on = I must recharge! Stay and recharge to 80%.
+Battery is at 42% during vacuuming = Keep going! Continue vacuuming.
+Battery is at 12% at any time = I must recharge! Stop vacuuming, shut down suction and brushes, Go recharge to 80%.
+                                OR Don't start vacuuming. Charge to 80%.
+Battery is at 15% during vacuuming = I must recharge! Stop vacuuming, shut down suction and brushes, Go recharge to 80%
+*/
+#include <iostream> //use i/o library
+
+using namespace std;
+//declare variables
+int Battery, vacuum, repeat;
+
+
+int main()
+{
+  repeat = 1; //1 is the check again, so I want to start at 1, so the program runs.
+  while (repeat == 1) //loop to allow continual battery check.
+   {
+    cout << "Enter battery percentage: "; //ask user for battery percentage (simulating asking battery)
+    cin >> Battery; //store battery percentage
+    cout << "If vacuuming has already began, enter 1. If it has not, enter 0: "; //ask user if vacuuming already
+    cin >> vacuum; //store whether or not it it has started
+if (vacuum == 0) //if it is not vacuuming
+  {
+    if (Battery >= 80) //battery is less than or equal to 80%, it is good.
+    {
+        cout << "I am good to go! Let's go vacuum!"<< endl;
+    }
+    else //if battery is less than or equal to 79% it is bad.
+    {
+        cout << "I need to go recharge!"<< endl;
+    }
+  }
+  if (vacuum == 1) //if it is vacuuming
+  {
+      if (Battery <= 15) //if battery is less than or equal to 15% I must go recharge
+      {
+          cout << "I need to go recharge. I will turn off brushes and suction. I remember what I have done and I will be back at 80%!!!" << endl;
+      }
+      else //if battery is 16% or greater, I can keep going.
+      {
+          cout << "I'm ready to keep vacuuming!!!" << endl;
+      }
+      }
+    cout << "Enter 1 to check again or enter 0 to close program: "; //Do I want to keep checking?
+    cin >> repeat;
+   }
+ return 0;
+}
