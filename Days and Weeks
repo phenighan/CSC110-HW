@@ -1,0 +1,31 @@
+/*Weeks and Days
+*Paris Henighan
+*14SEP2016
+*Version 2
+Program to calculate number of whole weeks to days
+*/
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int days, counter;
+float week;
+
+int main()
+{
+    cout << "Enter number of days:";
+    cin >> days;
+    week = float(days) / 7;
+    cout << int (week) << " weeks" << endl;
+    counter = 0;
+    while (int(days) % 7 !=0)
+      {
+          week = days / 7;
+          days--;
+          counter++;
+      }
+    cout << counter << " remaining days" << endl;
+    return 0;
+}
