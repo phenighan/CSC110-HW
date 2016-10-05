@@ -1,0 +1,137 @@
+/*Paris Henighan
+18JUL2016
+Cash register
+Version 3
+Final Project
+Program returns change user would receive
+*/
+
+#include <iostream>        // Access output stream
+#include <cmath>           // Access math library
+#include <fstream>        //Access if stream for data files
+#include <string>         //access stream library
+#include <iomanip>        //access manip library
+using namespace std;
+//declare all variables
+float CalcChange (float);
+float AmountSpent, AmountGiven, Change, penny;
+int onehundred, fifty, twenty, ten, five, one, quarter, dime, quit, nickel, directions;
+string Directions;
+//interface function. first thing the user sees!
+void interface()
+{
+    cout << "               ********************" << endl;
+    cout << "               $                  $" << endl;
+    cout << "               $                  $" << endl;
+    cout << "               $  CASH REGISTER   $" << endl;
+    cout << "               $                  $" << endl;
+    cout << "               $                  $" << endl;
+    cout << "               ********************" << endl;
+}
+
+int main()
+{
+    interface(); //display interface
+    //ask user whether or not to read directions and determine whether or not to display
+    cout << "Would you like to read the directions? Press 1 for yes and 2 for no." << endl;
+    cin >> directions;
+    if (directions == 1)
+    {
+        ifstream inData;
+        inData.open("directions.in", ios::app);
+        getline(inData,Directions);
+        cout << Directions <<endl;
+    }
+    else if (directions == 0)
+    {
+        cout << "Let's play!" << endl;
+    }
+ do
+  {
+    cout << "Please enter the amount spent: $";         //Ask user for the amount they spent
+    cin >> AmountSpent;         //set user input to amount spent
+    cout << "Please enter amount given to cashier: $";  //Ask user for the amount they are giving to the cashier
+    cin >> AmountGiven;         //set user input to amount spent
+    //verify amount given is greater than amount spent
+    if (AmountGiven < AmountSpent)
+    {
+        cout << "You did not give the cashier enough money. Please try again." << endl;
+    }
+    else //calculate change and display change
+    {
+    CalcChange (AmountGiven);   //Set change
+    cout << "Your change is $" << fixed << setprecision(2) << Change << "." << endl; //display change
+    onehundred = Change / 100;
+    if (Change >= 100)
+    {
+        Change = Change - (100 * onehundred);
+    }
+    twenty = Change / 20;
+    if (Change >= 20)
+    {
+        Change = Change - (20* twenty);
+    }
+    ten = Change / 10;
+    if (Change >= 10)
+    {
+        Change = Change - (10 * ten);
+    }
+    five = Change / 5;
+    if (Change >= 5)
+    {
+        Change = Change - (5 * five);
+    }
+    one = Change / 1;
+    if (Change >= 1)
+    {
+        Change = Change - (1 * one);
+    }
+    quarter = Change / .25;
+    if (Change >= .25)
+    {
+        Change = Change - (.25 * quarter);
+    }
+    dime = Change / .10;
+    if (Change >= .10)
+    {
+        Change = Change - (.10 * dime);
+    }
+    nickel = Change / .05;
+    if (Change >= .05)
+    {
+        Change = Change - (.05 * nickel);
+    }
+    penny = Change / .01;
+    if (Change >= .01)
+    {
+        Change = Change - (.01 * penny);
+    }
+    cout << "$100: " << onehundred << endl;
+    cout << "$20: " << twenty << endl;
+    cout << "$10: " << ten << endl;
+    cout << "$5: " << five << endl;
+    cout << "$1: " << one << endl;
+    cout << "$0.25: " << quarter << endl;
+    cout << "$0.10: " << dime << endl;
+    cout << "$0.05: " << nickel << endl;
+    cout << "$0.01: " << fixed << setprecision(0) << penny << endl;
+    }
+    cout << "Enter 0 to quit or 1 to run program again." << endl; //ask user if they want to play again
+    cin >> quit; //store user answer
+    }
+    while (quit == 1); //continue or quit program
+    cout << "Thanks for playing!!!" << endl;
+  return 0;                 // Indicate successful completion
+}
+/*
+CalcChange
+This function calculates the change
+Input: Amount given and amount spent
+Output: Change to be received
+*/
+float CalcChange (float c)  //function for change
+{
+    //calculate change
+    Change = c - AmountSpent;
+    return Change;
+}
