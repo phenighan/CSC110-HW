@@ -1,0 +1,112 @@
+/*Paris Henighan
+4 Oct 2016
+Version 1
+Phonetic Words
+Allows user to enter a word and outputs the phonetic version*/
+//include libraries for string use and cout, cin, etc.
+#include <iostream>
+#include <string>
+using namespace std;
+//declare all variables
+string word, convert;
+int i,quit;
+char letter;
+
+int main ()
+{
+
+    do
+    {
+    cout << "Enter a a single word to convert it phonetically:"; //ask user for a single word
+    cin >> word; //store user word
+    for (i = 0; i < word.size(); i++)
+    {
+        word[i] = toupper(word[i]); //capitalize word and store each letter into array
+    switch (word[i]) //search array for each letter to output phonetic word
+    {
+    case 'A':
+        cout << "Alpha" <<endl;
+        break;
+    case 'B':
+        cout << "Bravo"<<endl;
+		break;
+	case 'C':
+	    cout << "Charlie"<<endl;
+		break;
+	case 'D':
+	    cout << "Delta"<<endl;
+		break;
+	case 'E':
+	    cout << "Echo"<<endl;
+		break;
+	case 'F':
+	    cout << "Foxtrot"<<endl;
+		break;
+	case'G':
+	    cout << "Golf"<<endl;
+		break;
+	case 'H':
+	    cout << "Hotel"<<endl;
+		break;
+	case 'I':
+	    cout << "India"<<endl;
+		break;
+	case'J':
+	    cout << "Juliet"<<endl;
+		break;
+	case 'K':
+	    cout << "Kilo"<<endl;
+		break;
+	case 'L':
+	    cout << "Lima"<<endl;
+		break;
+	case 'M':
+	    cout << "Mike"<<endl;
+		break;
+	case 'N':
+	    cout << "November"<<endl;
+		break;
+	case 'O':
+	    cout << "Oscar"<<endl;
+		break;
+	case 'P':
+	    cout << "Papa"<<endl;
+		break;
+	case 'Q':
+	    cout << "Quebec"<<endl;
+		break;
+	case 'R':
+	    cout << "Romeo"<<endl;
+		break;
+	case 'S':
+	    cout << "Sierra"<<endl;
+		break;
+	case 'T':
+	    cout <<"Tango"<<endl;
+		break;
+	case'U':
+	    cout <<"Uniforms"<<endl;
+		break;
+	case 'V':
+	    cout <<"Victor"<<endl;
+		break;
+	case 'W':
+	    cout <<"Whiskey"<<endl;
+		break;
+	case 'X':
+	    cout << "X-ray"<<endl;
+		break;
+	case'Y':
+	    cout << "Yankee"<<endl;
+		break;
+	case 'Z':
+	    cout << "Zulu"<<endl;
+		break;
+    }
+    }
+    cout << "Enter 0 to quit or 1 to play again: "; //ask user if they want to continue
+    cin >> quit; //store user choice
+    } while (quit == 1); //1 allows playing again, 0 quits;
+    cout << "Thanks for playing!" << endl; //thank the user for playing before closing it out
+    return 0;
+}
